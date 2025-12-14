@@ -1,228 +1,1796 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<title>Maui 旅行行程（12/24–12/31）</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang TC","Microsoft JhengHei",Arial;
-  background:#fafafa;
-  margin:0;
-  padding:16px;
-  line-height:1.6;
-  color:#222;
-}
-h1{font-size:1.6rem;}
-h2{font-size:1.3rem;margin-top:1.2em;}
-h3{font-size:1.05rem;margin-top:0.8em;}
-.section{
-  background:#fff;
-  border-radius:12px;
-  padding:14px;
-  margin-bottom:14px;
-  box-shadow:0 1px 4px rgba(0,0,0,.08);
-}
-a{color:#0b63ce;text-decoration:none;}
-a:hover{text-decoration:underline;}
-.tag{
-  display:inline-block;
-  background:#e6f4ea;
-  color:#137333;
-  font-size:.75rem;
-  padding:2px 6px;
-  border-radius:999px;
-  margin-left:6px;
-}
-ul{padding-left:1.2em;}
-.small{font-size:.85rem;color:#555;}
-hr{border:none;border-top:1px dashed #ccc;margin:12px 0;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long's Family Maui 7-Day Itinerary | Long's Family 毛伊岛7日行程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 22px;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .lang-switch {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-header.alert {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .section-header .icon {
+            transition: transform 0.3s;
+        }
+        
+        .section-header.active .icon {
+            transform: rotate(180deg);
+        }
+        
+        .section-content {
+            padding: 20px;
+            display: none;
+        }
+        
+        .section-content.active {
+            display: block;
+        }
+        
+        .day-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .day-header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 12px 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .day-header h3 {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 3px;
+        }
+        
+        .day-header .date {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .day-content {
+            padding: 15px;
+            display: none;
+            background: white;
+        }
+        
+        .day-content.active {
+            display: block;
+        }
+        
+        .activity {
+            border-left: 3px solid #667eea;
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .activity .time {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 13px;
+        }
+        
+        .activity .name {
+            font-weight: bold;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .activity .detail {
+            color: #666;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        .btn-nav {
+            display: inline-block;
+            background: #667eea;
+            color: white !important;
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            margin: 5px 5px 5px 0;
+            font-weight: bold;
+        }
+        
+        .btn-nav:hover {
+            background: #5568d3;
+        }
+        
+        .reservation-table {
+            width: 100%;
+            font-size: 12px;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .reservation-table table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 450px;
+        }
+        
+        .reservation-table th {
+            background: #f0f0f0;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+            font-size: 12px;
+        }
+        
+        .reservation-table td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+        }
+        
+        .status-done {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .status-pending {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .packing-category {
+            margin-bottom: 20px;
+        }
+        
+        .packing-category h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        
+        .packing-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .packing-item input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+        
+        .packing-item label {
+            flex: 1;
+            font-size: 13px;
+        }
+        
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+            z-index: 1000;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+            cursor: pointer;
+            color: #666;
+            text-decoration: none;
+            font-size: 11px;
+        }
+        
+        .nav-item.active {
+            color: #667eea;
+        }
+        
+        .nav-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 12px;
+        }
+        
+        .tip {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 12px;
+        }
+        
+        .lang-en {
+            display: none;
+        }
+        
+        body.english .lang-zh {
+            display: none;
+        }
+        
+        body.english .lang-en {
+            display: block;
+        }
+        
+        body.english .lang-zh-inline {
+            display: none;
+        }
+        
+        body.english .lang-en-inline {
+            display: inline;
+        }
+        
+        .lang-zh-inline {
+            display: inline;
+        }
+        
+        .lang-en-inline {
+            display: none;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        ul li {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+    </style>
 </head>
-
 <body>
-
-<h1>🌺 Maui 旅行行程（12/24–12/31）</h1>
-<p class="small">
-基地：<b>Residence Inn by Marriott Maui Wailea</b><br>
-说明：本页为最终执行版（已更新日期调整 & 预约状态）
-</p>
-
-<div class="section">
-<h2>📍 常用地图 & 预约链接</h2>
-<ul>
-<li>酒店：<a href="https://maps.google.com/?q=Residence+Inn+by+Marriott+Maui+Wailea" target="_blank">Residence Inn Maui Wailea</a></li>
-<li>黑沙滩：<a href="https://maps.google.com/?q=Wai%27anapanapa+State+Park" target="_blank">Waiʻānapanapa State Park</a>
-<span class="tag">已预订</span></li>
-<li>ʻIao Valley：<a href="https://maps.google.com/?q=Iao+Valley+State+Monument" target="_blank">ʻIao Valley State Monument</a>
-<span class="tag">已预订</span></li>
-<li>Maʻalaea Harbor：<a href="https://maps.google.com/?q=Maalaea+Harbor" target="_blank">Pride of Maui 出发码头</a></li>
-<li>Haleakalā Summit：<a href="https://maps.google.com/?q=Haleakala+Summit+Parking+Lot" target="_blank">火山山顶停车场</a></li>
-</ul>
-
-<h3>🎟 预约页面</h3>
-<ul>
-<li>黑沙滩（已订）：https://gostateparks.hawaii.gov/waianapanapa</li>
-<li>ʻIao Valley（已订）：https://gostateparks.hawaii.gov/iao</li>
-<li>Feast at Mōkapu Luau：https://www.andazmaui.com/experiences/feast-at-mokapu</li>
-<li>Haleakalā 国家公园：https://www.recreation.gov/ticket/facility/253731</li>
-</ul>
-</div>
-
-<!-- 12/24 -->
-<div class="section">
-<h2>📅 12/24（三）｜抵达 + Wailea 适应日</h2>
-<ul>
-<li>12:54 抵达 OGG → 取车 → 驶往 Wailea（30–40 分钟）</li>
-<li>入住 Residence Inn</li>
-<li>下午：
-  <ul>
-    <li>The Shops at Wailea</li>
-    <li>Island Gourmet Market（买水、零食、熟食）</li>
-    <li>Wailea / Ulua Beach 看日落</li>
-  </ul>
-</li>
-<li>晚餐：Monkeypod Kitchen</li>
-</ul>
-</div>
-
-<!-- 12/25 -->
-<div class="section">
-<h2>📅 12/25（四）｜Molokini 浮潜 + Luau</h2>
-
-<h3>上午｜Molokini & Turtle Town（Pride of Maui）</h3>
-<ul>
-<li>06:45 从酒店出发 → Maʻalaea Harbor</li>
-<li>07:30 抵达码头</li>
-<li>08:00–13:00 浮潜（含早餐 + BBQ 午餐）</li>
-<li>13:30 回酒店休息</li>
-</ul>
-
-<h3>傍晚｜The Feast at Mōkapu Luau</h3>
-<ul>
-<li>地点：Andaz Maui at Wailea</li>
-<li>16:45–17:00 抵达</li>
-<li>桌边服务晚餐 + 火舞 + 日落</li>
-</ul>
-</div>
-
-<!-- 12/26 -->
-<div class="section">
-<h2>📅 12/26（五）｜Upcountry + Haleakalā 日落</h2>
-
-<ul>
-<li>上午：
-  <ul>
-    <li>Surfing Goat Dairy</li>
-    <li>Aliʻi Kula Lavender Farm</li>
-    <li>午餐：Kula Bistro / Kula Marketplace</li>
-  </ul>
-</li>
-
-<li>下午：
-  <ul>
-    <li>15:30 上山进入 Haleakalā NP</li>
-    <li>Visitor Center</li>
-    <li>Pa Kaʻoao Trail（15–20 分钟短步道）</li>
-    <li>17:45–18:00 Summit 日落</li>
-  </ul>
-</li>
-<li>20:00 左右返回 Wailea</li>
-</ul>
-</div>
-
-<!-- 12/27 -->
-<div class="section">
-<h2>📅 12/27（六）｜Ocean Center + 西北海岸</h2>
-
-<ul>
-<li>上午：Maui Ocean Center（9:30–11:30）</li>
-<li>下午（沿 30 号公路）：
-  <ul>
-    <li>Kahekili Beach Park</li>
-    <li>Napili Bay</li>
-    <li>Kapalua Bay</li>
-    <li>Kapalua Coastal Trail</li>
-    <li>Dragon’s Teeth</li>
-    <li>Nakalele Blowhole</li>
-  </ul>
-</li>
-<li>傍晚返回 Wailea</li>
-</ul>
-</div>
-
-<!-- 12/28 -->
-<div class="section">
-<h2>📅 12/28（日）｜Road to Hana（先黑沙滩）</h2>
-
-<p class="small">
-策略：直接到最远点 → 回程慢慢玩（人少、光线好）
-</p>
-
-<ul>
-<li>06:30 出发</li>
-<li>08:30–10:00 黑沙滩 Waiʻānapanapa <span class="tag">已预订</span></li>
-<li>回程依次：
-  <ul>
-    <li>Hāna Farms（午餐）</li>
-    <li>Wailua Falls</li>
-    <li>Upper Waikani Falls</li>
-    <li>Garden of Eden（可选）</li>
-    <li>Twin Falls</li>
-    <li>Ho‘okipa Beach（海龟）</li>
-  </ul>
-</li>
-<li>17:00–18:00 回到 Wailea</li>
-</ul>
-</div>
-
-<!-- 12/29 -->
-<div class="section">
-<h2>📅 12/29（一）｜ʻIao Valley + Kahului + Kihei</h2>
-
-<h3>上午</h3>
-<ul>
-<li>ʻIao Valley State Monument <span class="tag">已预订</span></li>
-</ul>
-
-<h3>午餐（无需预约）</h3>
-<ul>
-<li>The Mill House Marketplace（同园区简餐）</li>
-<li>Wailuku Coffee Company</li>
-<li>Tiffany’s Maui（老牌本地餐厅）</li>
-</ul>
-
-<h3>下午</h3>
-<ul>
-<li>Costco / Target / Foodland 购物</li>
-</ul>
-
-<h3>晚餐（无需预约）</h3>
-<ul>
-<li>Coconut’s Fish Cafe（Kihei）</li>
-<li>Paia Fish Market – Kihei</li>
-<li>Maui Brewing Co.</li>
-</ul>
-</div>
-
-<!-- 12/30 -->
-<div class="section">
-<h2>📅 12/30（二）｜Wailea 海滩 + 告别晚餐</h2>
-<ul>
-<li>Wailea Beach / Polo Beach / Makena Big Beach</li>
-<li>下午泳池 + 整理行李</li>
-<li>晚餐：Ferraro’s / DUO（订不到可 Monkeypod）</li>
-</ul>
-</div>
-
-<!-- 12/31 -->
-<div class="section">
-<h2>📅 12/31（三）｜返程</h2>
-<ul>
-<li>退房、还车</li>
-<li>UA454 返回 SFO</li>
-</ul>
-</div>
-
+    <div class="header">
+        <div class="header-top">
+            <h1>
+                <span class="lang-zh">🌺 Long's Family 毛伊岛7日行程</span>
+                <span class="lang-en">🌺 Long's Family Maui 7-Day Itinerary</span>
+            </h1>
+            <button class="lang-switch" onclick="toggleLanguage()">
+                <span class="lang-zh">English</span>
+                <span class="lang-en">中文</span>
+            </button>
+        </div>
+        <div class="subtitle">
+            <span class="lang-zh">2025年12月24日 - 12月31日</span>
+            <span class="lang-en">December 24 - 31, 2025</span>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- 重要预约 Section -->
+        <div class="section">
+            <div class="section-header alert" onclick="toggleSection(this)">
+                <span>
+                    <span class="lang-zh">⚠️ 重要预约状态</span>
+                    <span class="lang-en">⚠️ Important Reservations</span>
+                </span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content active">
+                <div class="reservation-table">
+                    <table>
+                        <tr>
+                            <th>
+                                <span class="lang-zh">项目</span>
+                                <span class="lang-en">Item</span>
+                            </th>
+                            <th>
+                                <span class="lang-zh">状态</span>
+                                <span class="lang-en">Status</span>
+                            </th>
+                            <th>
+                                <span class="lang-zh">操作</span>
+                                <span class="lang-en">Action</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="lang-zh">Molokini浮潜</span>
+                                <span class="lang-en">Molokini Snorkel</span>
+                            </td>
+                            <td class="status-done">
+                                <span class="lang-zh">✅ 已预订</span>
+                                <span class="lang-en">✅ Booked</span>
+                            </td>
+                            <td>
+                                <span class="lang-zh">12/25 7:30AM登船</span>
+                                <span class="lang-en">12/25 7:30AM Boarding</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Feast at Mōkapu Luau</td>
+                            <td class="status-done">
+                                <span class="lang-zh">✅ 已预订</span>
+                                <span class="lang-en">✅ Booked</span>
+                            </td>
+                            <td>
+                                <span class="lang-zh">12/25 5:00PM入场</span>
+                                <span class="lang-en">12/25 5:00PM Entry</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="lang-zh">黑沙滩 Waiʻānapanapa</span>
+                                <span class="lang-en">Black Sand Beach Waiʻānapanapa</span>
+                            </td>
+                            <td class="status-done">
+                                <span class="lang-zh">✅ 已预订</span>
+                                <span class="lang-en">✅ Booked</span>
+                            </td>
+                            <td>
+                                <span class="lang-zh">12/28 8-11:30AM</span>
+                                <span class="lang-en">12/28 8-11:30AM</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ʻIao Valley</td>
+                            <td class="status-done">
+                                <span class="lang-zh">✅ 已预订</span>
+                                <span class="lang-en">✅ Booked</span>
+                            </td>
+                            <td>
+                                <span class="lang-zh">12/29 预约已确认</span>
+                                <span class="lang-en">12/29 Reservation Confirmed</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="lang-zh">告别晚餐</span>
+                                <span class="lang-en">Farewell Dinner</span>
+                            </td>
+                            <td class="status-done">
+                                <span class="lang-zh">✅ 已预订</span>
+                                <span class="lang-en">✅ Booked</span>
+                            </td>
+                            <td>
+                                <span class="lang-zh">12/30 Four Seasons海景位</span>
+                                <span class="lang-en">12/30 Four Seasons Ocean View</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 每日行程 Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span>
+                    <span class="lang-zh">📅 每日行程</span>
+                    <span class="lang-en">📅 Daily Itinerary</span>
+                </span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <!-- Day 1 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div>
+                            <h3>
+                                <span class="lang-zh">Day 1 - 抵达与Wailea放松</span>
+                                <span class="lang-en">Day 1 - Arrival & Wailea Relaxation</span>
+                            </h3>
+                            <div class="date">
+                                <span class="lang-zh">12月24日 周三</span>
+                                <span class="lang-en">Dec 24, Wed</span>
+                            </div>
+                        </div>
+                        <span>▶</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="activity">
+                            <div class="time">12:54 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">抵达OGG机场 / 取租车</span>
+                                <span class="lang-en">Arrive OGG Airport / Pick up Rental Car</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">确认租车手续，准备驶往Wailea</span>
+                                <span class="lang-en">Confirm rental procedures, prepare to drive to Wailea</span>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="time">1:30 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">驶往Residence Inn Wailea</span>
+                                <span class="lang-en">Drive to Residence Inn Wailea</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">📍 距离机场：17英里，30-40分钟</span>
+                                <span class="lang-en">📍 From Airport: 17 miles, 30-40 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Residence+Inn+Maui+Wailea" class="btn-nav">📍 导航 Navigate</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">3:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">入住酒店</span>
+                                <span class="lang-en">Check-in Hotel</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">休息，轻装简行</span>
+                                <span class="lang-en">Rest and settle in</span>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="time">4:30 PM</div>
+                            <div class="name">The Shops at Wailea</div>
+                            <div class="detail">
+                                <span class="lang-zh">采购补给，Island Gourmet Market<br>
+                                📍 距离酒店：0.7英里，3分钟</span>
+                                <span class="lang-en">Shop for supplies at Island Gourmet Market<br>
+                                📍 From Hotel: 0.7 miles, 3 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=The+Shops+at+Wailea" class="btn-nav">🛍️ 前往 Go</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">5:30 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">Wailea Beach日落</span>
+                                <span class="lang-en">Wailea Beach Sunset</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">欣赏Wailea日落，开启度假模式<br>
+                                📍 距离Shops：0.5英里，2分钟</span>
+                                <span class="lang-en">Enjoy sunset, start vacation mode<br>
+                                📍 From Shops: 0.5 miles, 2 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Wailea+Beach" class="btn-nav">🏖️ 海滩 Beach</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">7:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">晚餐：Monkeypod Kitchen</span>
+                                <span class="lang-en">Dinner: Monkeypod Kitchen</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">推荐招牌Mai Tai，支持本地食材<br>
+                                📍 距离海滩：0.8英里，3分钟<br>
+                                🏨 回酒店：1英里，3分钟</span>
+                                <span class="lang-en">Try signature Mai Tai, local ingredients<br>
+                                📍 From Beach: 0.8 miles, 3 min<br>
+                                🏨 Back to Hotel: 1 mile, 3 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Monkeypod+Kitchen+Wailea" class="btn-nav">🍽️ 餐厅 Restaurant</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 2 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div>
+                            <h3>
+                                <span class="lang-zh">Day 2 - 水上探险与豪华Luau</span>
+                                <span class="lang-en">Day 2 - Water Adventure & Luxury Luau</span>
+                            </h3>
+                            <div class="date">
+                                <span class="lang-zh">12月25日 周四</span>
+                                <span class="lang-en">Dec 25, Thu</span>
+                            </div>
+                        </div>
+                        <span>▶</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="warning">
+                            <span class="lang-zh">⚠️ 早起警报：需6:45 AM出发前往Ma'alaea Harbor</span>
+                            <span class="lang-en">⚠️ Early Alert: Depart 6:45 AM to Ma'alaea Harbor</span>
+                        </div>
+                        <div class="activity">
+                            <div class="time">7:00 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">驶往Ma'alaea Harbor</span>
+                                <span class="lang-en">Drive to Ma'alaea Harbor</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">必须7:30 AM前抵达Pride of Maui<br>
+                                📍 距离酒店：14英里，25-30分钟</span>
+                                <span class="lang-en">Must arrive by 7:30 AM for Pride of Maui<br>
+                                📍 From Hotel: 14 miles, 25-30 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Ma'alaea+Harbor" class="btn-nav">⚓ 码头 Harbor</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">8:00 AM - 1:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">Molokini & Turtle Town浮潜</span>
+                                <span class="lang-en">Molokini & Turtle Town Snorkeling</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">已预订！包含早餐和BBQ午餐。使用礁石友好型防晒霜<br>
+                                📍 船程：前往Molokini约1小时</span>
+                                <span class="lang-en">Booked! Includes breakfast & BBQ lunch. Use reef-safe sunscreen<br>
+                                📍 Boat ride: ~1 hour to Molokini</span>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="time">1:30 - 4:30 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">下午活动选项（三选一）</span>
+                                <span class="lang-en">Afternoon Activity Options (Choose One)</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">
+                                    <strong>选项A：酒店泳池放松</strong><br>
+                                    • 如果浮潜后比较累，回酒店休息<br>
+                                    • 泳池边小憩，为晚上Luau充电<br>
+                                    📍 距离码头：14英里，25分钟<br><br>
+                                    
+                                    <strong>选项B：Wailea Shops圣诞购物</strong><br>
+                                    • 圣诞节特别氛围<br>
+                                    • Lululemon、Kate Spade等品牌<br>
+                                    • 可在Island Gourmet Market喝咖啡<br>
+                                    📍 距离码头：13英里，22分钟<br><br>
+                                    
+                                    <strong>选项C：Keawakapu Beach漫步</strong><br>
+                                    • 本地人最爱的隐秘海滩<br>
+                                    • 比Wailea Beach更安静<br>
+                                    • 适合散步拍照，不下水<br>
+                                    📍 距离码头：12英里，20分钟
+                                </span>
+                                <span class="lang-en">
+                                    <strong>Option A: Hotel Pool Relaxation</strong><br>
+                                    • If tired after snorkeling, rest at hotel<br>
+                                    • Poolside rest, recharge for evening Luau<br>
+                                    📍 From Harbor: 14 miles, 25 min<br><br>
+                                    
+                                    <strong>Option B: Wailea Shops Christmas Shopping</strong><br>
+                                    • Special Christmas atmosphere<br>
+                                    • Lululemon, Kate Spade & more<br>
+                                    • Coffee at Island Gourmet Market<br>
+                                    📍 From Harbor: 13 miles, 22 min<br><br>
+                                    
+                                    <strong>Option C: Keawakapu Beach Walk</strong><br>
+                                    • Local's favorite hidden beach<br>
+                                    • Quieter than Wailea Beach<br>
+                                    • Perfect for walking & photos, no swimming<br>
+                                    📍 From Harbor: 12 miles, 20 min
+                                </span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Residence+Inn+Wailea" class="btn-nav">🏨 酒店 Hotel</a>
+                            <a href="https://maps.google.com/?q=The+Shops+at+Wailea" class="btn-nav">🛍️ Shops</a>
+                            <a href="https://maps.google.com/?q=Keawakapu+Beach" class="btn-nav">🏖️ Beach</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">5:00 PM</div>
+                            <div class="name">Feast at Mōkapu Luau</div>
+                            <div class="detail">
+                                <span class="lang-zh">已预订！豪华Luau体验，桌边服务，开放酒吧和海边火舞<br>
+                                📍 距离酒店：0.5英里，2分钟（Andaz Wailea）<br>
+                                🏨 回酒店：0.5英里，2分钟</span>
+                                <span class="lang-en">Booked! Luxury Luau with table service, open bar & fire dancing by the ocean<br>
+                                📍 From Hotel: 0.5 miles, 2 min (Andaz Wailea)<br>
+                                🏨 Back to Hotel: 0.5 miles, 2 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Andaz+Maui" class="btn-nav">🎭 Luau地点 Venue</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 3 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div>
+                            <h3>
+                                <span class="lang-zh">Day 3 - Upcountry山麓与Haleakalā日落</span>
+                                <span class="lang-en">Day 3 - Upcountry & Haleakalā Sunset</span>
+                            </h3>
+                            <div class="date">
+                                <span class="lang-zh">12月26日 周五</span>
+                                <span class="lang-en">Dec 26, Fri</span>
+                            </div>
+                        </div>
+                        <span>▶</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="warning">
+                            <span class="lang-zh">⚠️ 火山顶温度0-10°C！必带厚外套</span>
+                            <span class="lang-en">⚠️ Summit temp 32-50°F! Must bring warm jacket</span>
+                        </div>
+                        <div class="activity">
+                            <div class="time">11:00 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">① Surfing Goat Dairy山羊农场</span>
+                                <span class="lang-en">① Surfing Goat Dairy</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">试奶酪，参观农场<br>
+                                📍 距离酒店：21英里，35分钟</span>
+                                <span class="lang-en">Cheese tasting, farm tour<br>
+                                📍 From Hotel: 21 miles, 35 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Surfing+Goat+Dairy" class="btn-nav">🐐 农场 Farm</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">12:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">② Ali'i Kula Lavender薰衣草园</span>
+                                <span class="lang-en">② Ali'i Kula Lavender Farm</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">轻松散步，可现场买票<br>
+                                📍 距离农场：4英里，10分钟</span>
+                                <span class="lang-en">Easy walk, tickets at entrance<br>
+                                📍 From Dairy: 4 miles, 10 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Alii+Kula+Lavender+Farm" class="btn-nav">🌸 薰衣草园 Lavender</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">1:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">午餐：Kula Bistro</span>
+                                <span class="lang-en">Lunch: Kula Bistro</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">强烈推荐！Macadamia nut Crusted Mahi-Mahi<br>
+                                📍 距离薰衣草园：2英里，5分钟</span>
+                                <span class="lang-en">Highly recommended! Try Macadamia nut Crusted Mahi-Mahi<br>
+                                📍 From Lavender: 2 miles, 5 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Kula+Bistro" class="btn-nav">🍴 午餐 Lunch</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">3:30 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">驶往Haleakalā国家公园</span>
+                                <span class="lang-en">Drive to Haleakalā National Park</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">支付国家公园门票<br>
+                                📍 距离Kula Bistro：17英里，45分钟（盘山路）</span>
+                                <span class="lang-en">Pay park entrance fee<br>
+                                📍 From Kula Bistro: 17 miles, 45 min (winding road)</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Haleakala+National+Park+Entrance" class="btn-nav">🏔️ 公园入口 Park</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">4:30 PM</div>
+                            <div class="name">③ Haleakalā Visitor Center</div>
+                            <div class="detail">
+                                <span class="lang-zh">停20分钟预览云海<br>
+                                📍 距离入口：11英里，30分钟</span>
+                                <span class="lang-en">Stop 20 min to preview sea of clouds<br>
+                                📍 From Entrance: 11 miles, 30 min</span>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="time">5:00 PM</div>
+                            <div class="name">④ Pa Ka'oao Trail (White Hill)</div>
+                            <div class="detail">
+                                <span class="lang-zh">必走短步道，看完整火山口景观<br>
+                                📍 距离游客中心：0.5英里，2分钟</span>
+                                <span class="lang-en">Must-do short trail, full crater view<br>
+                                📍 From Visitor Center: 0.5 miles, 2 min</span>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="time">5:45 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">⑤ Summit日落</span>
+                                <span class="lang-en">⑤ Summit Sunset</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">Red Hill观赏日落，记得添加防寒衣物<br>
+                                📍 距离White Hill：1英里，5分钟<br>
+                                🏨 回酒店：38英里，1小时15分钟（夜间下山请谨慎）</span>
+                                <span class="lang-en">Watch sunset from Red Hill, add warm layers<br>
+                                📍 From White Hill: 1 mile, 5 min<br>
+                                🏨 Back to Hotel: 38 miles, 1 hr 15 min (drive carefully at night)</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Puu+Ulaula+Red+Hill+Summit" class="btn-nav">🌅 山顶 Summit</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 4 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div>
+                            <h3>
+                                <span class="lang-zh">Day 4 - 海洋中心与狂野西北海岸</span>
+                                <span class="lang-en">Day 4 - Ocean Center & Wild Northwest Coast</span>
+                            </h3>
+                            <div class="date">
+                                <span class="lang-zh">12月27日 周六</span>
+                                <span class="lang-en">Dec 27, Sat</span>
+                            </div>
+                        </div>
+                        <span>▶</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="warning">
+                            <span class="lang-zh">⚠️ Nakalele Blowhole安全警告：严禁靠近喷口！</span>
+                            <span class="lang-en">⚠️ Nakalele Blowhole Safety: Stay away from blowhole!</span>
+                        </div>
+                        <div class="activity">
+                            <div class="time">9:30 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">Maui Ocean Center水族馆</span>
+                                <span class="lang-en">Maui Ocean Center Aquarium</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">适合家庭，停留1.5-2小时<br>
+                                📍 距离酒店：13英里，20分钟</span>
+                                <span class="lang-en">Family-friendly, stay 1.5-2 hours<br>
+                                📍 From Hotel: 13 miles, 20 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Maui+Ocean+Center" class="btn-nav">🐠 水族馆 Aquarium</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">11:30 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">午餐：Seascape Restaurant</span>
+                                <span class="lang-en">Lunch: Seascape Restaurant</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">海景午餐，在水族馆旁<br>
+                                📍 就在水族馆旁边，步行2分钟</span>
+                                <span class="lang-en">Ocean view lunch, next to aquarium<br>
+                                📍 Right next to aquarium, 2 min walk</span>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="time">2:00 PM</div>
+                            <div class="name">① Kahekili Beach Park</div>
+                            <div class="detail">
+                                <span class="lang-zh">短暂散步20分钟<br>
+                                📍 距离水族馆：19英里，30分钟</span>
+                                <span class="lang-en">Short walk 20 min<br>
+                                📍 From Aquarium: 19 miles, 30 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Kahekili+Beach+Park" class="btn-nav">🏖️ 海滩 Beach</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">3:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">② Kapalua Bay月亮湾</span>
+                                <span class="lang-en">② Kapalua Bay</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">停30-40分钟<br>
+                                📍 距离Kahekili：6英里，12分钟</span>
+                                <span class="lang-en">Stop 30-40 min<br>
+                                📍 From Kahekili: 6 miles, 12 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Kapalua+Bay" class="btn-nav">🌊 月亮湾 Bay</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">3:45 PM</div>
+                            <div class="name">③ Kapalua Coastal Trail</div>
+                            <div class="detail">
+                                <span class="lang-zh">必走！40分钟步道，绝美断崖景观<br>
+                                📍 起点就在月亮湾旁，步行1分钟</span>
+                                <span class="lang-en">Must do! 40-min trail, stunning cliff views<br>
+                                📍 Trail starts next to bay, 1 min walk</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Kapalua+Coastal+Trail" class="btn-nav">🚶 步道 Trail</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">4:30 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">④ Dragon's Teeth龙牙岩</span>
+                                <span class="lang-en">④ Dragon's Teeth</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">火山岩独特景观，停20分钟<br>
+                                📍 距离Coastal Trail终点：0.5英里，2分钟</span>
+                                <span class="lang-en">Unique volcanic rock formation, stop 20 min<br>
+                                📍 From Trail End: 0.5 miles, 2 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Dragons+Teeth+Maui" class="btn-nav">🗿 龙牙岩 Rocks</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">5:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">⑤ Nakalele Blowhole喷潮洞</span>
+                                <span class="lang-en">⑤ Nakalele Blowhole</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">下午光线好，容易出现彩虹。保持安全距离！<br>
+                                📍 距离龙牙岩：7英里，15分钟<br>
+                                🏨 回酒店：38英里，55分钟（经Lahaina）</span>
+                                <span class="lang-en">Good afternoon light for rainbows. Keep safe distance!<br>
+                                📍 From Dragon's Teeth: 7 miles, 15 min<br>
+                                🏨 Back to Hotel: 38 miles, 55 min (via Lahaina)</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Nakalele+Blowhole" class="btn-nav">💨 喷潮洞 Blowhole</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 5 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div>
+                            <h3>
+                                <span class="lang-zh">Day 5 - Road to Hana逆行探索</span>
+                                <span class="lang-en">Day 5 - Road to Hana Reverse Route</span>
+                            </h3>
+                            <div class="date">
+                                <span class="lang-zh">12月28日 周日</span>
+                                <span class="lang-en">Dec 28, Sun</span>
+                            </div>
+                        </div>
+                        <span>▶</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="warning">
+                            <span class="lang-zh">⚠️ 极早出发：6:30 AM出发，加满油，备足水和零食</span>
+                            <span class="lang-en">⚠️ Very Early Start: 6:30 AM departure, full tank, water & snacks</span>
+                        </div>
+                        <div class="tip">
+                            <span class="lang-zh">💡 策略：先直奔黑沙滩，再往回玩，避开人流</span>
+                            <span class="lang-en">💡 Strategy: Go straight to Black Sand Beach first, then play on the way back to avoid crowds</span>
+                        </div>
+                        <div class="activity">
+                            <div class="time">6:30 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">从Wailea出发</span>
+                                <span class="lang-en">Depart from Wailea</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">务必加满油，准备水和零食<br>
+                                📍 全程约175英里往返</span>
+                                <span class="lang-en">Must fill up gas, prepare water and snacks<br>
+                                📍 Total round trip ~175 miles</span>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="time">8:30-9:00 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">① Waiʻānapanapa黑沙滩</span>
+                                <span class="lang-en">① Waiʻānapanapa Black Sand Beach</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">已预订！停60-90分钟，探索熔岩洞<br>
+                                📍 距离酒店：54英里，2小时（直达）</span>
+                                <span class="lang-en">Booked! Stop 60-90 min, explore lava tube<br>
+                                📍 From Hotel: 54 miles, 2 hrs (direct)</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Waianapanapa+State+Park" class="btn-nav">⚫ 黑沙滩 Beach</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">10:30 AM</div>
+                            <div class="name">② Hāna Farms</div>
+                            <div class="detail">
+                                <span class="lang-zh">轻松午餐，购买香蕉面包<br>
+                                📍 距离黑沙滩：3英里，8分钟</span>
+                                <span class="lang-en">Light lunch, buy banana bread<br>
+                                📍 From Black Sand Beach: 3 miles, 8 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Hana+Farms" class="btn-nav">🍌 农场 Farms</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">11:30 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">③ Wailua Falls大瀑布</span>
+                                <span class="lang-en">③ Wailua Falls</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">路边停留10分钟<br>
+                                📍 距离Hana Farms：6英里，15分钟</span>
+                                <span class="lang-en">Roadside stop 10 min<br>
+                                📍 From Hana Farms: 6 miles, 15 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Wailua+Falls+Maui" class="btn-nav">💦 瀑布 Falls</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">12:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">④ Upper Waikani Falls三熊瀑布</span>
+                                <span class="lang-en">④ Upper Waikani Falls (Three Bears)</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">经典照片点，停10-15分钟<br>
+                                📍 距离Wailua Falls：2英里，5分钟</span>
+                                <span class="lang-en">Classic photo spot, stop 10-15 min<br>
+                                📍 From Wailua Falls: 2 miles, 5 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Upper+Waikani+Falls" class="btn-nav">🐻 三熊瀑布 3 Bears</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">1:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">⑤ Garden of Eden (可选)</span>
+                                <span class="lang-en">⑤ Garden of Eden (Optional)</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">热带雨林景观，停30-40分钟<br>
+                                📍 距离三熊瀑布：5英里，12分钟</span>
+                                <span class="lang-en">Tropical rainforest, stop 30-40 min<br>
+                                📍 From Three Bears: 5 miles, 12 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Garden+of+Eden+Maui" class="btn-nav">🌿 伊甸园 Garden</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">3:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">⑥ Twin Falls轻徒步</span>
+                                <span class="lang-en">⑥ Twin Falls Light Hike</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">徒步30-40分钟。注意防盗和地面湿滑<br>
+                                📍 距离Garden of Eden：15英里，30分钟</span>
+                                <span class="lang-en">Hike 30-40 min. Watch for theft and slippery surfaces<br>
+                                📍 From Garden of Eden: 15 miles, 30 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Twin+Falls+Maui" class="btn-nav">🥾 双瀑布 Twin Falls</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">4:00 PM</div>
+                            <div class="name">⑦ Ho'okipa Beach Park</div>
+                            <div class="detail">
+                                <span class="lang-zh">下午常能看到海龟晒太阳<br>
+                                📍 距离Twin Falls：4英里，10分钟</span>
+                                <span class="lang-en">Often see turtles sunbathing in afternoon<br>
+                                📍 From Twin Falls: 4 miles, 10 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Ho'okipa+Beach+Park" class="btn-nav">🐢 海龟滩 Turtles</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">7:30 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">晚餐：Coconut's Fish Café</span>
+                                <span class="lang-en">Dinner: Coconut's Fish Café</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">休闲海鲜，Fish Tacos<br>
+                                📍 距离Ho'okipa：25英里，35分钟（经Kihei）<br>
+                                🏨 回酒店：5英里，10分钟</span>
+                                <span class="lang-en">Casual seafood, Fish Tacos<br>
+                                📍 From Ho'okipa: 25 miles, 35 min (via Kihei)<br>
+                                🏨 Back to Hotel: 5 miles, 10 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Coconuts+Fish+Cafe+Kihei" class="btn-nav">🐟 晚餐 Dinner</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 6 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div>
+                            <h3>
+                                <span class="lang-zh">Day 6 - 历史山谷与探索毛伊</span>
+                                <span class="lang-en">Day 6 - Historic Valley & Explore Maui</span>
+                            </h3>
+                            <div class="date">
+                                <span class="lang-zh">12月29日 周一</span>
+                                <span class="lang-en">Dec 29, Mon</span>
+                            </div>
+                        </div>
+                        <span>▶</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="activity">
+                            <div class="time">9:30 AM</div>
+                            <div class="name">ʻIao Valley State Monument</div>
+                            <div class="detail">
+                                <span class="lang-zh">已预订！探索Iao Needle和热带山谷步道60-90分钟<br>
+                                📍 距离酒店：17英里，30分钟</span>
+                                <span class="lang-en">Booked! Explore Iao Needle & valley trails 60-90 min<br>
+                                📍 From Hotel: 17 miles, 30 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Iao+Valley+State+Monument" class="btn-nav">🏞️ 山谷 Valley</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">11:30 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">午餐选项（无需预约）</span>
+                                <span class="lang-en">Lunch Options (No reservation needed)</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">
+                                    首选：The Mill House Marketplace (简餐区) - 汉堡/沙拉/三明治<br>
+                                    备选：Wailuku Coffee Company 或 Tiffany's Maui (本地海鲜)<br>
+                                    📍 距离Iao Valley：3英里，8分钟
+                                </span>
+                                <span class="lang-en">
+                                    First choice: The Mill House Marketplace - burgers/salads/sandwiches<br>
+                                    Alternatives: Wailuku Coffee Company or Tiffany's Maui (local seafood)<br>
+                                    📍 From Iao Valley: 3 miles, 8 min
+                                </span>
+                            </div>
+                            <a href="https://maps.google.com/?q=The+Mill+House+Maui" class="btn-nav">🍔 Mill House</a>
+                            <a href="https://maps.google.com/?q=Wailuku+Coffee+Company" class="btn-nav">☕ Coffee Co.</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">1:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">下午活动选项（三选一）</span>
+                                <span class="lang-en">Afternoon Activity Options (Choose One)</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">
+                                    <strong>选项A：Maui Tropical Plantation</strong><br>
+                                    • 热带种植园观光小火车（40分钟）<br>
+                                    • 品尝新鲜水果，逛农贸市场<br>
+                                    • 适合家庭，轻松惬意<br>
+                                    📍 距离午餐地：2英里，5分钟<br><br>
+                                    
+                                    <strong>选项B：Lahaina Historic Town</strong><br>
+                                    • 历史小镇漫步（部分区域已重新开放）<br>
+                                    • Banyan Tree Park 百年榕树<br>
+                                    • 海滨艺术画廊和商店<br>
+                                    📍 距离午餐地：11英里，20分钟<br><br>
+                                    
+                                    <strong>选项C：Baldwin Beach + Paia Town</strong><br>
+                                    • Baldwin Beach 本地人最爱海滩<br>
+                                    • Paia嬉皮小镇：冲浪文化、艺术店铺<br>
+                                    • 必试：Paia Fish Market原店<br>
+                                    📍 距离午餐地：7英里，15分钟
+                                </span>
+                                <span class="lang-en">
+                                    <strong>Option A: Maui Tropical Plantation</strong><br>
+                                    • Tropical tram tour (40 min)<br>
+                                    • Fresh fruit tasting, farmers market<br>
+                                    • Family-friendly, relaxing<br>
+                                    📍 From Lunch: 2 miles, 5 min<br><br>
+                                    
+                                    <strong>Option B: Lahaina Historic Town</strong><br>
+                                    • Historic town walk (partially reopened)<br>
+                                    • Banyan Tree Park<br>
+                                    • Waterfront galleries and shops<br>
+                                    📍 From Lunch: 11 miles, 20 min<br><br>
+                                    
+                                    <strong>Option C: Baldwin Beach + Paia Town</strong><br>
+                                    • Baldwin Beach - locals' favorite<br>
+                                    • Paia hippie town: surf culture, art shops<br>
+                                    • Must try: Original Paia Fish Market<br>
+                                    📍 From Lunch: 7 miles, 15 min
+                                </span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Maui+Tropical+Plantation" class="btn-nav">🚂 A.种植园 Plantation</a>
+                            <a href="https://maps.google.com/?q=Lahaina+Banyan+Tree" class="btn-nav">🌳 B.Lahaina</a>
+                            <a href="https://maps.google.com/?q=Baldwin+Beach+Park" class="btn-nav">🏄 C.Paia</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">4:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">快速采购伴手礼（30分钟）</span>
+                                <span class="lang-en">Quick Souvenir Shopping (30 min)</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">
+                                    如选择需要：Costco/Safeway快速采购夏威夷果和咖啡<br>
+                                    或在Paia/Lahaina的特色店购买独特纪念品<br>
+                                    📍 Costco距离：从种植园5英里，10分钟
+                                </span>
+                                <span class="lang-en">
+                                    If needed: Quick stop at Costco/Safeway for macadamias & coffee<br>
+                                    Or unique souvenirs at specialty shops in Paia/Lahaina<br>
+                                    📍 Costco: From Plantation 5 miles, 10 min
+                                </span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Costco+Kahului" class="btn-nav">🛒 Costco</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">5:30 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">晚餐选项（Kihei 高成功率）</span>
+                                <span class="lang-en">Dinner Options (Kihei - High Success Rate)</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">
+                                    首选：Coconut's Fish Cafe 或 Paia Fish Market (几乎不用等)<br>
+                                    备选：Maui Brewing Co. 或 Nalu's South Shore Grill (Walk-in友好)<br>
+                                    📍 距离Costco：8英里，15分钟（到Kihei）<br>
+                                    🏨 回酒店：5英里，10分钟（从Kihei）
+                                </span>
+                                <span class="lang-en">
+                                    First choice: Coconut's Fish Cafe or Paia Fish Market (minimal wait)<br>
+                                    Alternatives: Maui Brewing Co. or Nalu's South Shore Grill (Walk-in friendly)<br>
+                                    📍 From Costco: 8 miles, 15 min (to Kihei)<br>
+                                    🏨 Back to Hotel: 5 miles, 10 min (from Kihei)
+                                </span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Coconuts+Fish+Cafe+Kihei" class="btn-nav">🥥 Coconut's</a>
+                            <a href="https://maps.google.com/?q=Paia+Fish+Market+Kihei" class="btn-nav">🐟 Paia Fish</a>
+                            <a href="https://maps.google.com/?q=Maui+Brewing+Co+Kihei" class="btn-nav">🍺 Brewing Co.</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 7 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div>
+                            <h3>
+                                <span class="lang-zh">Day 7 - Wailea海滩日与告别晚餐</span>
+                                <span class="lang-en">Day 7 - Wailea Beach & Farewell Dinner</span>
+                            </h3>
+                            <div class="date">
+                                <span class="lang-zh">12月30日 周二</span>
+                                <span class="lang-en">Dec 30, Tue</span>
+                            </div>
+                        </div>
+                        <span>▶</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="activity">
+                            <div class="time">9:00 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">上午海滩活动（二选一）</span>
+                                <span class="lang-en">Morning Beach Activity (Choose One)</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">
+                                    <strong>选项A：Wailea Beach浮潜</strong><br>
+                                    • 最后一次下水机会<br>
+                                    • 早晨水质最清澈<br>
+                                    📍 距离酒店：0.8英里，3分钟<br><br>
+                                    
+                                    <strong>选项B：Makena Big Beach探索</strong><br>
+                                    • 毛伊岛最壮观的海滩<br>
+                                    • 可爬上Pu'u Olai小山看全景<br>
+                                    📍 距离酒店：4英里，8分钟
+                                </span>
+                                <span class="lang-en">
+                                    <strong>Option A: Wailea Beach Snorkeling</strong><br>
+                                    • Last chance for water activities<br>
+                                    • Clearest water in morning<br>
+                                    📍 From Hotel: 0.8 miles, 3 min<br><br>
+                                    
+                                    <strong>Option B: Makena Big Beach Exploration</strong><br>
+                                    • Maui's most spectacular beach<br>
+                                    • Can climb Pu'u Olai for panoramic views<br>
+                                    📍 From Hotel: 4 miles, 8 min
+                                </span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Wailea+Beach" class="btn-nav">🏊 Wailea</a>
+                            <a href="https://maps.google.com/?q=Makena+Big+Beach" class="btn-nav">🌊 Big Beach</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">11:00 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">早午餐：Kihei Caffe</span>
+                                <span class="lang-en">Brunch: Kihei Caffe</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">毛伊岛最受欢迎的早午餐<br>
+                                著名的Loco Moco和班尼迪克蛋<br>
+                                📍 距离海滩：6英里，12分钟</span>
+                                <span class="lang-en">Maui's most popular brunch spot<br>
+                                Famous Loco Moco and Eggs Benedict<br>
+                                📍 From Beach: 6 miles, 12 min</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Kihei+Caffe" class="btn-nav">🍳 Brunch</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">1:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">下午活动选项（二选一）</span>
+                                <span class="lang-en">Afternoon Options (Choose One)</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">
+                                    <strong>选项A：Grand Wailea Resort参观</strong><br>
+                                    • 毛伊岛最奢华的度假村<br>
+                                    • 9个泳池、水上滑梯、艺术品<br>
+                                    • 可在Spa预约按摩（如提前预约）<br>
+                                    📍 距离Kihei：4英里，8分钟<br><br>
+                                    
+                                    <strong>选项B：最后的购物</strong><br>
+                                    • Shops at Wailea最后采购<br>
+                                    • Honolua Store冲浪品牌<br>
+                                    • Maui Waterwear泳装店<br>
+                                    📍 距离Kihei：4.5英里，9分钟
+                                </span>
+                                <span class="lang-en">
+                                    <strong>Option A: Grand Wailea Resort Tour</strong><br>
+                                    • Maui's most luxurious resort<br>
+                                    • 9 pools, water slides, art collection<br>
+                                    • Can book spa massage (if reserved ahead)<br>
+                                    📍 From Kihei: 4 miles, 8 min<br><br>
+                                    
+                                    <strong>Option B: Last Shopping</strong><br>
+                                    • Final shopping at Shops at Wailea<br>
+                                    • Honolua Store surf brands<br>
+                                    • Maui Waterwear swimsuit shop<br>
+                                    📍 From Kihei: 4.5 miles, 9 min
+                                </span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Grand+Wailea+Resort" class="btn-nav">🏰 Grand Wailea</a>
+                            <a href="https://maps.google.com/?q=The+Shops+at+Wailea" class="btn-nav">🛍️ Shopping</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">3:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">酒店泳池最后放松</span>
+                                <span class="lang-en">Final Pool Relaxation</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">回酒店冲澡、换装<br>
+                                准备告别晚餐的正装<br>
+                                📍 回酒店：1英里，3分钟</span>
+                                <span class="lang-en">Shower and change clothes<br>
+                                Prepare formal wear for farewell dinner<br>
+                                📍 Back to Hotel: 1 mile, 3 min</span>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="time">5:30 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">告别晚餐 - Four Seasons</span>
+                                <span class="lang-en">Farewell Dinner - Four Seasons</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">
+                                    已预订海景位！<br>
+                                    • Ferraro's - 意大利菜，海景<br>
+                                    • DUO - 牛排海鲜<br>
+                                    • 建议提前15分钟到达看日落<br>
+                                    📍 距离酒店：0.6英里，3分钟
+                                </span>
+                                <span class="lang-en">
+                                    Ocean view table booked!<br>
+                                    • Ferraro's - Italian, ocean view<br>
+                                    • DUO - Steak & Seafood<br>
+                                    • Suggest arriving 15 min early for sunset<br>
+                                    📍 From Hotel: 0.6 miles, 3 min
+                                </span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Four+Seasons+Resort+Maui" class="btn-nav">🍾 Four Seasons</a>
+                        </div>
+                        <div class="activity">
+                            <div class="time">8:00 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">返回酒店整理行李</span>
+                                <span class="lang-en">Return to Hotel & Pack</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">
+                                    晚餐后整理行李<br>
+                                    确认所有伴手礼打包<br>
+                                    准备明早退房<br>
+                                    🏨 回酒店：0.6英里，3分钟
+                                </span>
+                                <span class="lang-en">
+                                    Pack luggage after dinner<br>
+                                    Ensure all souvenirs packed<br>
+                                    Prepare for morning checkout<br>
+                                    🏨 Back to Hotel: 0.6 miles, 3 min
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 8 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div>
+                            <h3>
+                                <span class="lang-zh">Day 8 - 返程</span>
+                                <span class="lang-en">Day 8 - Departure</span>
+                            </h3>
+                            <div class="date">
+                                <span class="lang-zh">12月31日 周三</span>
+                                <span class="lang-en">Dec 31, Wed</span>
+                            </div>
+                        </div>
+                        <span>▶</span>
+                    </div>
+                    <div class="day-content">
+                        <div class="activity">
+                            <div class="time">10:30 AM</div>
+                            <div class="name">
+                                <span class="lang-zh">退房、还车</span>
+                                <span class="lang-en">Check-out & Return Car</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">预留充足时间在OGG机场还车<br>
+                                📍 酒店到机场：17英里，30-40分钟</span>
+                                <span class="lang-en">Allow enough time for car return at OGG<br>
+                                📍 Hotel to Airport: 17 miles, 30-40 min</span>
+                            </div>
+                        </div>
+                        <div class="activity">
+                            <div class="time">12:30 PM</div>
+                            <div class="name">
+                                <span class="lang-zh">UA454飞回SFO</span>
+                                <span class="lang-en">UA454 to SFO</span>
+                            </div>
+                            <div class="detail">
+                                <span class="lang-zh">至少提前2小时抵达机场<br>
+                                建议10:30 AM前离开酒店</span>
+                                <span class="lang-en">Arrive at airport at least 2 hours early<br>
+                                Suggest leaving hotel before 10:30 AM</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Kahului+Airport" class="btn-nav">✈️ 机场 Airport</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 打包清单 Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span>
+                    <span class="lang-zh">🎒 打包清单</span>
+                    <span class="lang-en">🎒 Packing List</span>
+                </span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="packing-category">
+                    <h4>
+                        <span class="lang-zh">🌡️ Haleakalā防寒装备 (0-10°C)</span>
+                        <span class="lang-en">🌡️ Haleakalā Cold Gear (32-50°F)</span>
+                    </h4>
+                    <div class="packing-item">
+                        <input type="checkbox" id="fleece">
+                        <label for="fleece">
+                            <span class="lang-zh">抓绒衣/羊毛衣 (1-2件)</span>
+                            <span class="lang-en">Fleece/Wool Sweater (1-2 items)</span>
+                        </label>
+                    </div>
+                    <div class="packing-item">
+                        <input type="checkbox" id="jacket">
+                        <label for="jacket">
+                            <span class="lang-zh">轻便羽绒服/冲锋衣</span>
+                            <span class="lang-en">Light Down Jacket/Windbreaker</span>
+                        </label>
+                    </div>
+                    <div class="packing-item">
+                        <input type="checkbox" id="warmhat">
+                        <label for="warmhat">
+                            <span class="lang-zh">保暖帽和手套</span>
+                            <span class="lang-en">Warm Hat & Gloves</span>
+                        </label>
+                    </div>
+                    <div class="packing-item">
+                        <input type="checkbox" id="longpants">
+                        <label for="longpants">
+                            <span class="lang-zh">长裤 (非棉质)</span>
+                            <span class="lang-en">Long Pants (Non-cotton)</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="packing-category">
+                    <h4>
+                        <span class="lang-zh">💧 Road to Hana/徒步装备</span>
+                        <span class="lang-en">💧 Road to Hana/Hiking Gear</span>
+                    </h4>
+                    <div class="packing-item">
+                        <input type="checkbox" id="raincoat">
+                        <label for="raincoat">
+                            <span class="lang-zh">轻便雨衣/雨披</span>
+                            <span class="lang-en">Light Raincoat/Poncho</span>
+                        </label>
+                    </div>
+                    <div class="packing-item">
+                        <input type="checkbox" id="hikingshoes">
+                        <label for="hikingshoes">
+                            <span class="lang-zh">防水/快干徒步鞋</span>
+                            <span class="lang-en">Waterproof/Quick-dry Hiking Shoes</span>
+                        </label>
+                    </div>
+                    <div class="packing-item">
+                        <input type="checkbox" id="insect">
+                        <label for="insect">
+                            <span class="lang-zh">驱虫剂</span>
+                            <span class="lang-en">Insect Repellent</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="packing-category">
+                    <h4>
+                        <span class="lang-zh">☀️ 海滩与水上活动</span>
+                        <span class="lang-en">☀️ Beach & Water Activities</span>
+                    </h4>
+                    <div class="packing-item">
+                        <input type="checkbox" id="sunscreen">
+                        <label for="sunscreen">
+                            <span class="lang-zh">礁石友好型防晒霜 (必须！)</span>
+                            <span class="lang-en">Reef-safe Sunscreen (Required!)</span>
+                        </label>
+                    </div>
+                    <div class="packing-item">
+                        <input type="checkbox" id="swimsuit">
+                        <label for="swimsuit">
+                            <span class="lang-zh">泳装 (2-3套)</span>
+                            <span class="lang-en">Swimsuits (2-3 sets)</span>
+                        </label>
+                    </div>
+                    <div class="packing-item">
+                        <input type="checkbox" id="beachtowel">
+                        <label for="beachtowel">
+                            <span class="lang-zh">沙滩毛巾</span>
+                            <span class="lang-en">Beach Towel</span>
+                        </label>
+                    </div>
+                    <div class="packing-item">
+                        <input type="checkbox" id="sunglasses">
+                        <label for="sunglasses">
+                            <span class="lang-zh">墨镜</span>
+                            <span class="lang-en">Sunglasses</span>
+                        </label>
+                    </div>
+                    <div class="packing-item">
+                        <input type="checkbox" id="sunhat">
+                        <label for="sunhat">
+                            <span class="lang-zh">太阳帽</span>
+                            <span class="lang-en">Sun Hat</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 伴手礼建议 Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span>
+                    <span class="lang-zh">🎁 伴手礼采购建议</span>
+                    <span class="lang-en">🎁 Souvenir Shopping Guide</span>
+                </span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h4>
+                    <span class="lang-zh">采购策略（灵活安排）</span>
+                    <span class="lang-en">Shopping Strategy (Flexible)</span>
+                </h4>
+                <ul>
+                    <li>
+                        <span class="lang-zh">Day 1 - Shops at Wailea：高端精品伴手礼</span>
+                        <span class="lang-en">Day 1 - Shops at Wailea: Premium souvenirs</span>
+                    </li>
+                    <li>
+                        <span class="lang-zh">Day 6 (12/29)：如需要，快速Costco批量采购</span>
+                        <span class="lang-en">Day 6 (12/29): Quick Costco bulk buy if needed</span>
+                    </li>
+                    <li>
+                        <span class="lang-zh">沿途特色店：随时可买独特纪念品</span>
+                        <span class="lang-en">Specialty shops along the way: Unique items anytime</span>
+                    </li>
+                </ul>
+                
+                <h4 style="margin-top: 20px;">
+                    <span class="lang-zh">特色商品采购地点</span>
+                    <span class="lang-en">Specialty Item Locations</span>
+                </h4>
+                <ul>
+                    <li>
+                        <span class="lang-zh">Surfing Goat Dairy - 山羊奶酪 (Day 3, 12/26)</span>
+                        <span class="lang-en">Surfing Goat Dairy - Goat Cheese (Day 3, 12/26)</span>
+                    </li>
+                    <li>
+                        <span class="lang-zh">Ali'i Kula Lavender - 薰衣草产品 (Day 3, 12/26)</span>
+                        <span class="lang-en">Ali'i Kula Lavender - Lavender Products (Day 3, 12/26)</span>
+                    </li>
+                    <li>
+                        <span class="lang-zh">Hāna Farms - 香蕉面包 (Day 5, 12/28)</span>
+                        <span class="lang-en">Hāna Farms - Banana Bread (Day 5, 12/28)</span>
+                    </li>
+                    <li>
+                        <span class="lang-zh">Paia Town - 冲浪文化纪念品 (Day 6选项C)</span>
+                        <span class="lang-en">Paia Town - Surf Culture Souvenirs (Day 6 Option C)</span>
+                    </li>
+                    <li>
+                        <span class="lang-zh">Lahaina - 艺术品和画作 (Day 6选项B)</span>
+                        <span class="lang-en">Lahaina - Art and Paintings (Day 6 Option B)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 重要提醒 Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span>
+                    <span class="lang-zh">📝 重要提醒</span>
+                    <span class="lang-en">📝 Important Reminders</span>
+                </span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="tip">
+                    <strong>
+                        <span class="lang-zh">🎉 所有预订已完成！</span>
+                        <span class="lang-en">🎉 All Reservations Complete!</span>
+                    </strong><br>
+                    <span class="lang-zh">
+                        ✅ Molokini浮潜 (12/25)<br>
+                        ✅ Feast at Mōkapu Luau (12/25)<br>
+                        ✅ Waiʻānapanapa黑沙滩 (12/28)<br>
+                        ✅ ʻIao Valley (12/29)<br>
+                        ✅ 告别晚餐Four Seasons (12/30)
+                    </span>
+                    <span class="lang-en">
+                        ✅ Molokini Snorkel (12/25)<br>
+                        ✅ Feast at Mōkapu Luau (12/25)<br>
+                        ✅ Waiʻānapanapa Black Sand Beach (12/28)<br>
+                        ✅ ʻIao Valley (12/29)<br>
+                        ✅ Farewell Dinner Four Seasons (12/30)
+                    </span>
+                </div>
+                
+                <div class="tip">
+                    <strong>
+                        <span class="lang-zh">行程优化说明：</span>
+                        <span class="lang-en">Itinerary Optimization:</span>
+                    </strong><br>
+                    <span class="lang-zh">
+                        • 12/26 Upcountry+日落 → 强度较低，适合前期<br>
+                        • 12/28 Road to Hana → 体力充沛时挑战<br>
+                        • 12/29 餐厅已换成无需预约的选项
+                    </span>
+                    <span class="lang-en">
+                        • 12/26 Upcountry+Sunset → Lower intensity, good for early trip<br>
+                        • 12/28 Road to Hana → Challenge when fully rested<br>
+                        • 12/29 Restaurants changed to no-reservation options
+                    </span>
+                </div>
+                
+                <div class="warning">
+                    <strong>
+                        <span class="lang-zh">安全提醒：</span>
+                        <span class="lang-en">Safety Reminders:</span>
+                    </strong><br>
+                    <span class="lang-zh">
+                        • Nakalele Blowhole - 严禁靠近喷口<br>
+                        • Road to Hana - 数百个弯道，备晕车药<br>
+                        • 使用礁石友好型防晒霜<br>
+                        • Haleakalā山顶极冷，必带厚外套
+                    </span>
+                    <span class="lang-en">
+                        • Nakalele Blowhole - Never approach the blowhole<br>
+                        • Road to Hana - Hundreds of curves, bring motion sickness medicine<br>
+                        • Use reef-safe sunscreen<br>
+                        • Haleakalā summit is very cold, must bring warm jacket
+                    </span>
+                </div>
+                
+                <div style="margin-top: 15px; padding: 10px; background: #f0f8ff; border-radius: 6px;">
+                    <strong>
+                        <span class="lang-zh">交通缓冲：</span>
+                        <span class="lang-en">Traffic Buffer:</span>
+                    </strong><br>
+                    <span class="lang-zh">圣诞高峰周，所有固定时间活动请增加20%时间缓冲</span>
+                    <span class="lang-en">Christmas peak week, add 20% time buffer for all scheduled activities</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部导航 -->
+    <div class="bottom-nav">
+        <a href="#" class="nav-item active" onclick="scrollToTop(); return false;">
+            <span class="nav-icon">🏠</span>
+            <span>
+                <span class="lang-zh">首页</span>
+                <span class="lang-en">Home</span>
+            </span>
+        </a>
+        <a href="#" class="nav-item" onclick="showSection('reservations'); return false;">
+            <span class="nav-icon">📋</span>
+            <span>
+                <span class="lang-zh">预约</span>
+                <span class="lang-en">Reserve</span>
+            </span>
+        </a>
+        <a href="#" class="nav-item" onclick="showSection('itinerary'); return false;">
+            <span class="nav-icon">📅</span>
+            <span>
+                <span class="lang-zh">行程</span>
+                <span class="lang-en">Itinerary</span>
+            </span>
+        </a>
+        <a href="#" class="nav-item" onclick="showSection('packing'); return false;">
+            <span class="nav-icon">🎒</span>
+            <span>
+                <span class="lang-zh">清单</span>
+                <span class="lang-en">Packing</span>
+            </span>
+        </a>
+    </div>
+    
+    <script>
+        // 切换语言
+        function toggleLanguage() {
+            document.body.classList.toggle('english');
+            
+            // 保存语言偏好
+            if (document.body.classList.contains('english')) {
+                localStorage.setItem('language', 'english');
+            } else {
+                localStorage.setItem('language', 'chinese');
+            }
+        }
+        
+        // 页面加载时检查语言偏好
+        window.addEventListener('load', function() {
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage === 'english') {
+                document.body.classList.add('english');
+            }
+        });
+        
+        // 切换section展开/收起
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.icon');
+            
+            content.classList.toggle('active');
+            header.classList.toggle('active');
+        }
+        
+        // 切换每日行程展开/收起
+        function toggleDay(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('span:last-child');
+            
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                icon.textContent = '▼';
+            } else {
+                icon.textContent = '▶';
+            }
+        }
+        
+        // 显示特定section
+        function showSection(sectionName) {
+            // 先收起所有section
+            document.querySelectorAll('.section-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // 根据section名称展开对应内容
+            let targetIndex;
+            switch(sectionName) {
+                case 'reservations':
+                    targetIndex = 0;
+                    break;
+                case 'itinerary':
+                    targetIndex = 1;
+                    break;
+                case 'packing':
+                    targetIndex = 2;
+                    break;
+                default:
+                    targetIndex = 0;
+            }
+            
+            const sections = document.querySelectorAll('.section-content');
+            if (sections[targetIndex]) {
+                sections[targetIndex].classList.add('active');
+                sections[targetIndex].parentElement.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // 更新底部导航active状态
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.nav-item').classList.add('active');
+        }
+        
+        // 回到顶部
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // 更新底部导航active状态
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector('.nav-item').classList.add('active');
+        }
+        
+        // 保存checkbox状态到localStorage
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            // 读取保存的状态
+            const savedState = localStorage.getItem(checkbox.id);
+            if (savedState === 'true') {
+                checkbox.checked = true;
+            }
+            
+            // 监听变化并保存
+            checkbox.addEventListener('change', function() {
+                localStorage.setItem(this.id, this.checked);
+            });
+        });
+    </script>
 </body>
 </html>
